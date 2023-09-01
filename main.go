@@ -1,5 +1,12 @@
 package sum
 
-func Add(a,b int)  int {
-	return a + b
+import (
+	"go.uber.org/zap"
+
+)
+
+func NewLoggerWithouTrace()  *zap.SugaredLogger {
+	cfg := zap.NewProductionConfig()
+	logger, _ := cfg.Build()
+	return logger.Sugar()
 }
